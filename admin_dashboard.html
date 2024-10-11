@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Danh sách Đoàn viên đã điểm danh</h1>
+    <form method="POST">
+        <table border="1">
+            <tr>
+                <th>Họ và tên</th>
+                <th>Khu phố</th>
+                <th>Hành động</th>
+            </tr>
+            {% for row in tables %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>
+                    <button type="submit" name="delete" value="{{ row[0] }}">Xóa</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <button type="submit" name="download">Tải danh sách Excel</button>
+    </form>
+</body>
+</html>
